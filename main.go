@@ -237,7 +237,7 @@ func main() {
 		}
 		c.SetCookie(cookie)
 
-		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNotiong})
+		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNothing})
 	})
 	e.POST("/signin", func(c echo.Context) error {
 		body := SigninBody{}
@@ -318,7 +318,7 @@ func main() {
 		}
 		c.SetCookie(cookie)
 
-		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNotiong})
+		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNothing})
 	})
 	e.POST("/access", func(c echo.Context) error {
 		refreshCookie, err := c.Cookie("refresh")
@@ -383,7 +383,7 @@ func main() {
 
 		c.SetCookie(cookie)
 
-		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNotiong})
+		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNothing})
 	})
 	e.POST("/logout", func(c echo.Context) error {
 		cookie := new(http.Cookie)
@@ -397,7 +397,7 @@ func main() {
 
 		c.SetCookie(cookie)
 
-		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNotiong})
+		return c.JSON(200, StatusResponse{Status: true, Reason: ReasonNothing})
 	})
 
 	e.Logger.Fatal(e.Start(":80"))
