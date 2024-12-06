@@ -135,6 +135,17 @@ func main() {
 		log.Fatal(err)
 	}
 
+	for {
+		err = db.Ping()
+
+		if err == nil {
+			break
+		}
+
+		log.Println("Wait for db")
+		time.Sleep(time.Second)
+	}
+
 	cookieDomain := os.Getenv("COOKIE_DOMAIN")
 	recaptchaSecret := os.Getenv("RECAPTCHA_SECRET")
 
