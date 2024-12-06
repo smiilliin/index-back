@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine AS development
+FROM golang:1.23-alpine AS development
 
 ARG db_user
 ARG db_password
@@ -11,7 +11,7 @@ RUN go install github.com/air-verse/air@latest
 EXPOSE 80
 CMD [ "air", "-c", ".air.toml" ]
 
-FROM golang:1.22-alpine AS production
+FROM golang:1.23-alpine AS production
 
 ARG db_user
 ARG db_password
