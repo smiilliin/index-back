@@ -8,14 +8,15 @@ Docker compose
 
 ```yaml
 index-back:
+  image: smiilliin/index-back
   container_name: index-back
   build:
-    context: ../index-back
-    target: [production/development]
+    context: ./index-back
+    target: production
   environment:
-    - DB_USER=
+    - DB_USER=smiilliin
     - DB_PASSWORD=
-    - DB_DATABASE=web
+    - DB_DATABASE=
     - COOKIE_DOMAIN=
     - RECAPTCHA_SECRET=
   depends_on:
@@ -23,8 +24,7 @@ index-back:
   expose:
     - "80"
   volumes:
-    - ../index-back:/app
-    - ../.hmac:/.hmac
+    - ./.hmac:/.hmac
   networks:
     - back
 ```
